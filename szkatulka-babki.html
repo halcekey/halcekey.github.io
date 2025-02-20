@@ -1,59 +1,66 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta lang="ja">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>書いた文章（仮）</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="https://halcekey.github.io/favicon.svg">
-    <link rel="icon alternate" type="image/png" href="https://halcekey.github.io/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    <title>翻訳作品</title>
+ <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto&display=swap" rel="stylesheet">
     <style>
-        h1, h2, h3, ul, p {
-            width: 70%; 
-            margin: 0 auto; 
-            text-align: left; 
-            padding: 5px; 
+ body {
+            font-family: "Noto Sans", sans-serif;
+        }
+        [lang="pl"] {
+            font-family: "Roboto", sans-serif;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .column {
+            width: 50%;
+            text-align: left;
+            padding:10px;
+            border: 1px solid #ccc;
+        }
+        .paragraph {
+            display: flex;
+        }
+        .text {
+            width: 50%; 
+            padding: 2px 15px;
+font-size: 1em; 
+            line-height: 1.5; 
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <h1>よみもの</h1>
-    </header>
 
-    <article>
-        <h3>ポーランド文学の翻訳物</h3>
-        <ul>
-            <li><a href="https://halcekey.github.io/szkatulka-babki.html">おばあさんの小箱</a>（Szkatułka Babki）Bolesław Prus</li>
-        </ul>
+    <h1 style="text-align: center;">翻訳作品</h1>
 
-        <body>
-            <header>
-                <h1>よみもの</h1>
-            </header>
-                <h2>おばあさんの小箱</h2>
-                <div class="text">
-                    <p>サファイア色のランプの犠牲の灯芯に火をつけると、おばあさんは古びた革張りのソファーに腰掛けた。黒ずんでもなお麗しい聖母マリアの絵に視線を上げ、朝の祈りを始めた。時には句を間違えたり飛ばしたりしながらも、震えるようなささやき声で、20年前に納屋での火災を鎮火してくれたことと、それよりも前に雹を降らす雲を畑から追い払ってくれたことを、聖母マリアに感謝した。その後、彼女は息子とその妻と孫、ご近所さんと使用人、そして家畜のために祈り、そして最後には多くの亡くなった親戚や友人、そして知人のことを思い出した。</p>
-                    <p>日の光は窓辺の花に口づけを落とし、部屋の白い壁に沿って進んだ。聖画の足元で光は反射し、椅子のそばで伸びをしていたねこをあたためた。そして光は、おばあさんの茶色い顔とたおやかに祈りをささげる乾いた手を包んだ。おばあさんはわずかに上ずった声で「主よ、彼らに永遠の眠りを与えよ」と唱えた。彼女が静かになるたびに、灯芯はランプ内の溶けた蝋に触れ、か細く「彼らを永遠の光で照らしたまえ」とささやいた。</p>
-                    <p>おばあさんは、このことに驚きはしなかった。彼女はその光が灯芯によるものであり、光については何よりも先に灯芯に話しておくべきだとよく知っていたからだ。</p>
-                    <p>普段の祈りを捧げたのち、彼女は亡きブロンド髪のカージョの魂のために特別に祈った。最愛の孫は4歳の時に亡くなった。今日8歳になるはずだった。このことに言及するたびに、哀れな彼女は決まって涙を流した。ああ、なぜ主はカージョよりも長く彼女を生かしたのだろうか。彼女は長いこと、糸巻き棒で巻いた黄色いろうそく(※2月2日の聖燭祭のろうそく)をベッドの上に用意していた。そんな彼女を、なぜ主は地上にとどめておくのだろうか。太陽は日に日に輝きを失い、木々や花の色もかつての色を失ってみすぼらしくなっていく。夏ですら寒く、7月になっても綿入りのカフタンを手放すことができないというのに。彼女にとって、この世で孫のことに心を痛め、どういうわけかかすれた声で鳴く鳥や、鳴くこともできなくなった鳥に驚かされるよりも、天国の小部屋（カトリックにおける天の象徴）でカージョと暮らしながら、窓のわずかな隙間から天使のコーラスを聞くほうが幸せだっただろう。</p>
-                    <p>働きすぎた労働者が深い睡眠を求めるように、老人は死を望む。老人にとって世界はもはや楽しいものではなく、周りの人々も彼を理解してやることができない。愛する者たちがすでに超えてしまった暗い穴の果てへと、哀惜は彼を引きずっていくのだ。彼らとの幸福な再会の中で、人生の初めに私たちを裏切るように去っていった青春や、その埋葬布によって輝きを隠された憧れの慰めを見出すのだろう。この半醒半睡の日々と不眠の夜の連鎖の果てには、永遠に輝く太陽がついに輝き、その光の中で魂は不死を、心は渇望が満たされるときを見つけるのだろうか。</p>
-                    <p>おばあさんは窓の外を見て、ふと疑問に思った。幼少期には広く感じられ、青年期にはとても狭く思えたこの庭が、今となっては一時間歩いても回り切れないほど大きく見えるのはなぜだろうか。しかしこの疑問をすぐに忘れ、カージョのことが心配になった。早朝に部屋を出たカージョは、露で風邪を引いてしまうかもしれない。しばらくの間、彼女はカージョが庭にいないということを想像できなかった。彼は砂糖を雌の子馬に与え、揺れるライラックの茂みの中に生えるシナノキの陰に行ったばかりだ。彼女は目をこすり、「カージョ！カージョ！おばあちゃんのところにおいで！」と叫びたかった。しかし彼女は再び我を忘れてしまった。幻覚は消え去り、疲れ切った思考は芝生をよぎる影のように飛び去ってしまった。魂の奥底のどこかに、漠然とした悲しみの滓が残った。無意識のようでありながら、ひどく苦いものだった。</p>
-                </div>
-    </article>
-  
-    <p><a href="https://halcekey.github.io">おふとんへ</a></p>
-    
-   
+    <div class="container">
+        <div class="row">
+            <h2 class="text" lang="ja">おばあさんの小箱</h2>
+            <h2 class="text" lang="pl">Szkatułka babki</h2>
+        </div>
+        <div class="paragraph">
+<p class="text"lang="ja">原文はパブリックドメインです。訳文の利用に関してはサイト管理者にお知らせください。</p>
+            <p class="text" lang="pl">Tekst jest własnością publiczną. <a href="https://pl.wikisource.org/wiki/Szkatu%C5%82ka_babki">Szkatułka babki - Wikisource</a></p>
+        </div>
+        <div class="paragraph">
+            <p class="text" lang="ja">サファイア色のランプの犠牲の灯芯に火をつけると、おばあさんは古びた革張りのソファーに腰掛けた。黒ずんでもなお麗しい聖母マリアの絵に視線を上げ、朝の祈りを始めた。時には句を間違えたり飛ばしたりしながらも、震えるようなささやき声で、20年前に納屋での火災を鎮火してくれたことと、それよりも前に雹を降らす雲を畑から追い払ってくれたことを、聖母マリアに感謝した。その後、彼女は息子とその妻と孫、ご近所さんと使用人、そして家畜のために祈り、そして最後には多くの亡くなった親戚や友人、そして知人のことを思い出した。</p>
+            <p class="text" lang="pl">Zapaliwszy ofiarny knotek w lampce szafirowej, siadła babunia na starym skórzanym fotelu i zaczęła odmawiać poranny pacierz, wzniósłszy oczy do zczerniałego, ale cudownego obrazu Matki Boskiej. Drżącym szeptem, myląc się i zapominając niekiedy, dziękowała Królowej nieba za ugaszenie przed dwudziestoma laty pożaru w stodołach i odpędzenie (dawniej jeszcze) od pól chmury gradowej. Potem modliła się za syna, synowę i wnuka, za sąsiadów, służbę i dobytek, wkońcu zaś wspomniała długi szereg zmarłych krewnych, przyjaciół i znajomych.</p>
+        </div>
+        <div class="paragraph">
+            <p class="text" lang="ja">日の光は窓辺の花に口づけを落とし、部屋の白い壁に沿って進んだ。聖画の足元で光は反射し、椅子のそばで伸びをしていたねこをあたためた。そして光は、おばあさんの茶色い顔とたおやかに祈りをささげる乾いた手を包んだ。おばあさんはわずかに上ずった声で「主よ、彼らに永遠の眠りを与えよ」と唱えた。彼女が静かになるたびに、灯芯はランプ内の溶けた蝋に触れ、か細く「彼らを永遠の光で照らしたまえ」とささやいた。</p>
+            <p class="text" lan="pl">Promienie słońca, ucałowawszy kwiaty, stojące w oknie, ślizgały się po białej ścianie pokoiku, a odbite od stóp świętego obrazu, nagrzewały kota, który się przy fotelu wyciągał, i otaczały jasnością brunatną twarz babuni, tudzież suche jej ręce, pokornie do modlitwy złożone. A ile razy staruszka podniesionym nieco głosem mruknęła: „Wieczny odpoczynek racz im dać, Panie...“ i milkła, tyle razy knotek, już dotykający wody w lampce, cieniutko odskwierczał: „A światłość wiekuista niechaj im świeci...“</p>
+        </div>
+    </div>
+
 </body>
-<script>
-  
-</script>
 </html>
-
