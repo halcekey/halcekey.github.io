@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>おふとん（仮）</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="https://halcekey.github.io/favicon.svg">
-    <link rel="icon alternate" type="image/png" href="https://halcekey.github.io/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
-<style>
-</style>
+    <title>おふとん（仮）</title>
+    <style>
+        body { font-family: 'Noto Sans', sans-serif; max-width: 1000px; margin: 20px auto; padding: 0 20px; line-height: 1.6; }
+        .input-area { background: #e0e0e0; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        input { padding: 10px; width: 300px; border: 1px solid #ccc; border-radius: 4px; }
+        .button1 { padding: 10px 20px; cursor: pointer; background: #8d8bf7; color: rgb(59, 59, 59); border: none; border-radius: 4px; }
+        .button1:hover { background: #6e6ef7; }
+    </style>
 </head>
-
 <body>
-    <p><a href="yomimono.html">書いた文章</a></p>
-    <p><a href="https://halcekey.github.io/rgbgame/">RGB当てゲーム</a></p>
-    <p><a href="https://halcekey.github.io/wikipedia-random/">カテゴリ選択式Wikipediaおまかせ表示</a></p>
-    <p><a href="https://halcekey.github.io/isbntocsv/">ISBN検索</a></p>
+    <h1>建設途中のいろいろ</h1>
+    <button class="button1" onclick="window.open('https://halcekey.github.io/yomimono', '_blank')">よみもの</button>
+    <button class="button1" onclick="window.open('https://halcekey.github.io/rgbgame/', '_blank')">RGB当てゲーム</button>
+    <button class="button1" onclick="window.open('https://halcekey.github.io/wikipedia-random/', '_blank')">ランダムpedia</button>
+    <button class="button1" onclick="window.open('https://halcekey.github.io/isbntocsv/', '_blank')">ISBN検索</button>
 </body>
 </html>
