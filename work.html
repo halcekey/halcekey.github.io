@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work - HalCeKey</title>  
+  <link rel="icon" type="image/svg+xml" href="https://halcekey.github.io/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap" rel="stylesheet">
+
+  <style>
+       body.theme-night {
+      --bg: #060913;
+      --text-main: #ecf0f1;
+      --text-sub: #7a8299;
+      --heading-color: #ecf0f1;
+      --link-hover-color: #ffffff;
+      --link-hover-shadow: 0 0 8px #ff0055, 0 0 16px #0000ff;
+      --section-tint: 255, 220, 255;
+      --section-opacity: 0.1;
+      --border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    body.theme-morning {
+      --bg: linear-gradient(135deg, #dfb0ff 30%, #ede8f5 80%, #ffffff 100%);
+      --text-main: #2b2342;
+      --text-sub: #6b6282;
+      --heading-color: #2b2342;
+      --link-hover-color: #5944d6;
+      --link-hover-shadow: none;
+      --section-tint: 250, 100, 120;
+      --section-opacity: 0.20;
+      --border-color: rgba(123, 104, 238, 0.15);
+    }
+
+    body.theme-day {
+      --bg: #def2ff;
+      --text-main: #1a1a24;
+      --text-sub: #606470;
+      --heading-color: #1a1a24;
+      --link-hover-color: #ff481f;
+      --link-hover-shadow: none;
+      --section-tint: 140, 180, 250;
+      --section-opacity: 0.25;
+      --border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    body.theme-sunset {
+      --bg: linear-gradient(135deg, #1b204a 0%, #4a284e 40%, #c44f3b 80%, #f0833a 100%);
+      --text-main: #fcefe3;
+      --text-sub: #cfb59d;
+      --heading-color: #fcefe3;
+      --link-hover-color: #ffffff;
+      --link-hover-shadow: 0 0 10px #ffaa55, 0 0 20px #ff5e36;
+      --section-tint: 255, 120, 60;
+      --section-opacity: 0.08;
+      --border-color: rgba(255, 170, 100, 0.15);
+    }
+
+        * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      transition: background 0.6s ease, color 0.4s ease;
+      overflow-x: hidden;
+      padding-top: 5rem; 
+      padding-bottom: 5rem;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(6, 9, 19, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .back-link {
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      color: var(--text-sub);
+      transition: color 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--text-main);
+    }
+
+    .time-indicator {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      opacity: 0.65;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .category-section {
+      padding: 2.25rem 2.5rem;
+      border-radius: 8px;
+    }
+
+    .align-left {
+      text-align: left;
+      background: linear-gradient(to right, rgba(var(--section-tint), var(--section-opacity)) 0%, transparent 100%);
+    }
+
+    .align-right {
+      text-align: right;
+      background: linear-gradient(to left, rgba(var(--section-tint), var(--section-opacity)) 0%, transparent 100%);
+    }
+
+    .category-title {
+      font-family: "Bungee Outline", cursive;
+      font-weight: normal;
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+      color: var(--heading-color);
+    }
+
+    .work-list {
+      list-style-position: inside;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .align-left .work-list {
+      list-style-type: none;
+    }
+
+    .align-right .work-list {
+      list-style-type: none;
+    }
+
+    .work-item a {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+      display: inline-block;
+    }
+
+    .work-desc {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-left: 0.75rem;
+    }
+
+    .align-right .work-desc {
+      margin-left: 0;
+      margin-right: 0.75rem;
+    }
+
+    .work-item a:hover {
+      color: var(--link-hover-color);
+      text-shadow: var(--link-hover-shadow);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <a href="https://halcekey.github.io/" class="back-link">&larr; TOP</a>
+    <span class="time-indicator" id="time-status">FETCHING...</span>
+  </header>
+
+  <main class="container">
+
+    <section class="category-section align-left">
+      <h2 class="category-title">Publication</h2>
+      <ul class="work-list">
+        <li class="work-item">
+          <a href="https://halcekey.github.io/szkatulka-babki.html" target="_blank" rel="noopener">おばあさんの小箱</a>
+          <span class="work-desc">— Bolesław Prus „Szkatułka Babki”の日本語訳</span>
+        </li>
+        <li class="work-item">
+          <a>食べてみないとわからない</a>
+          <span class="work-desc">— C108で頒布した食と旅行のエッセイ集</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="category-section align-right">
+      <h2 class="category-title">TOOL</h2>
+      <ul class="work-list">
+        <li class="work-item">
+          <span class="work-desc">日本語版Wikipediaのカテゴリを指定可能 —</span>
+          <a href="https://halcekey.github.io/wikipedia-random/" target="_blank" rel="noopener">Wikiランダム</a>
+        </li>
+        <li class="work-item">
+          <span class="work-desc">ISBN/NCIDから書誌情報を取得 —</span>
+          <a href="https://halcekey.github.io/isbntocsv/" target="_blank" rel="noopener">ISBN検索</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="category-section align-left">
+      <h2 class="category-title">GAME</h2>
+      <ul class="work-list">
+        <li class="work-item">
+          <a href="https://halcekey.github.io/rgbgame/" target="_blank" rel="noopener">色あてゲーム</a>
+          <span class="work-desc">— RGB値を当てよう</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script>
+    function applyTimeTheme() {
+      const now = new Date();
+      const hour = now.getHours();
+      document.body.classList.remove('theme-morning', 'theme-day', 'theme-sunset', 'theme-night');
+
+      let themeClass = '';
+      let label = '';
+
+      if (hour >= 5 && hour < 8) {
+        themeClass = 'theme-morning';
+      } else if (hour >= 8 && hour < 16) {
+        themeClass = 'theme-day';
+      } else if (hour >= 16 && hour < 19) {
+        themeClass = 'theme-sunset';
+      } else {
+        themeClass = 'theme-night';
+      }
+
+      document.body.classList.add(themeClass);
+      const status = document.getElementById('time-status');
+      if (status) status.textContent = label;
+    }
+
+    applyTimeTheme();
+  </script>
+</body>
+</html>
