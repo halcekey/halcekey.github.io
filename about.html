@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C108</title>
+  <link rel="icon" type="image/svg+xml" href="https://halcekey.github.io/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- めんどくさがって同人誌紹介と同じテンプレを使いまわして自己紹介をする。人生もまたある種の同人誌なのか -->
+  <style>
+    body.theme-night {
+      --bg: #060913;
+      --text-main: #ecf0f1;
+      --text-sub: #7a8299;
+      --heading-color: #ecf0f1;
+      --link-hover-color: #ffffff;
+      --link-hover-shadow: 0 0 8px #ff0055, 0 0 16px #0000ff;
+      --section-tint: 255, 220, 255;
+      --section-opacity: 0.1;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --cover-glow: 0 0 20px rgba(0, 240, 255, 0.25), 0 0 40px rgba(255, 0, 85, 0.15);
+    }
+
+    body.theme-morning {
+      --bg: linear-gradient(135deg, #dfb0ff 30%, #ede8f5 80%, #ffffff 100%);
+      --text-main: #2b2342;
+      --text-sub: #6b6282;
+      --heading-color: #2b2342;
+      --link-hover-color: #5944d6;
+      --link-hover-shadow: none;
+      --section-tint: 250, 100, 120;
+      --section-opacity: 0.20;
+      --border-color: rgba(123, 104, 238, 0.15);
+      --cover-glow: 0 12px 24px rgba(123, 104, 238, 0.15);
+    }
+
+    body.theme-day {
+      --bg: #def2ff;
+      --text-main: #1a1a24;
+      --text-sub: #606470;
+      --heading-color: #1a1a24;
+      --link-hover-color: #ff481f;
+      --link-hover-shadow: none;
+      --section-tint: 140, 180, 250;
+      --section-opacity: 0.25;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --cover-glow: 0 12px 24px rgba(0, 0, 0, 0.1);
+
+    }
+
+    body.theme-sunset {
+      --bg: linear-gradient(135deg, #1b204a 0%, #4a284e 40%, #c44f3b 80%, #f0833a 100%);
+      --text-main: #fcefe3;
+      --text-sub: #cfb59d;
+      --heading-color: #fcefe3;
+      --link-hover-color: #ffffff;
+      --link-hover-shadow: 0 0 10px #ffaa55, 0 0 20px #ff5e36;
+      --section-tint: 255, 120, 60;
+      --section-opacity: 0.08;
+      --border-color: rgba(255, 170, 100, 0.15);
+      --cover-glow: 0 0 25px rgba(255, 94, 54, 0.3);
+
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: "Noto Sans JP", sans-serif;      transition: background 0.6s ease, color 0.4s ease;
+      overflow-x: hidden;
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(6, 9, 19, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .back-link {
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      color: var(--text-sub);
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .back-link:hover {
+      color: var(--link-hover-color);
+      text-shadow: var(--link-hover-shadow);
+    }
+
+    .time-indicator {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      opacity: 0.65;
+    }
+
+     .container {
+      width: 100%;
+      max-width: 860px;
+      margin: auto 0;
+      padding: 0 1.5rem;
+    }
+
+    .book-panel {
+      background: linear-gradient(to right, rgba(var(--section-tint), var(--section-opacity)) 0%, transparent 100%);
+      border-left: 3px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 680px) {
+      .book-panel {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3.5rem;
+      }
+    }
+
+    .book-cover-wrap {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    .book-cover {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1; 
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: var(--cover-glow);
+      border: 1px solid var(--border-color);
+      display: block;
+      background-color: rgba(var(--section-tint), 0.1);
+    }
+
+    .book-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      text-align: left;
+    }
+
+    .book-meta {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-sub);
+    }
+
+    .book-title {
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 600;
+      font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+      color: var(--heading-color);
+    }
+
+    .book-synopsis {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--text-main);
+      opacity: 0.9;
+    }
+
+    .book-subinfo {
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <a href="work.html" class="back-link">← HOME</a>
+    <span class="time-indicator" id="time-status">DETECTING...</span>
+  </header>
+
+  <main class="container">
+    <article class="book-panel">
+      <div class="book-cover-wrap">
+        <img src="favicon.svg" alt="筆者近影" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div style="display:none; width:100%; aspect-ratio:1/1.414; border:1px dashed var(--border-color); border-radius:4px; align-items:center; justify-content:center; color:var(--text-sub); font-size:0.85rem;">
+          NO IMAGE
+        </div>
+      </div>
+
+      <div class="book-info">
+        <h1 class="book-title">一ノ宮慧 / HalCeKey</h1>
+        <p class="book-synopsis">
+            日本在住のひと、ねこ、わらびー。<br>
+            都内の大学で人間に関する研究をしている。
+        </p>
+        <div class="book-subinfo">
+          <span><em>すきなもの</em>：おさんぽ、秋の日差しのまろさ<br><em>きらいなもの</em>：人間の生暖かさを感じる音楽</span>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    function applyTimeTheme() {
+      const now = new Date();
+      const hour = now.getHours();
+      document.body.classList.remove('theme-morning', 'theme-day', 'theme-sunset', 'theme-night');
+
+      let themeClass = '';
+      let label = '';
+
+      if (hour >= 6 && hour < 9) {
+        themeClass = 'theme-morning';
+      } else if (hour >= 9 && hour < 16) {
+        themeClass = 'theme-day';
+      } else if (hour >= 16 && hour < 19) {
+        themeClass = 'theme-sunset';
+      } else {
+        themeClass = 'theme-night';
+      }
+
+      document.body.classList.add(themeClass);
+      const status = document.getElementById('time-status');
+      if (status) status.textContent = label;
+    }
+
+    applyTimeTheme();
+  </script>
+</body>
+</html>
